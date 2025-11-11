@@ -1,2 +1,3 @@
 # gn-math
-I just made an math allow ad block
+I just made gn math allow ad block
+Do not get mad at me
