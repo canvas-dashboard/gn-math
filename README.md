@@ -1,3 +1,2 @@
 # gn-math
-I just made gn math allow ad block.
-Do not get mad at me
+This is just so I can modify it. Plz do NOT get mad.
