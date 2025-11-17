@@ -114,7 +114,7 @@ body {
     margin: 0;
     padding: 0;
     background: var(--bg);
-    color: var(--text);
+    color: orange;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
@@ -122,13 +122,20 @@ body {
 }
 
 header {
-    background: var(--gradient-primary);
+    background: #5A5A5A;
     color: white;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow-lg);
     backdrop-filter: blur(20px);
+}
+
+.modif {
+    color: orange;
+    cursor: default;
+    font-size: 20px;
+    font-weight: 1000;
 }
 
 .header-content {
@@ -142,10 +149,11 @@ header {
 }
 
 .logo {
-    font-size: 1.75rem;
-    font-weight: 800;
+    cursor: default;
+    font-size: 35px;
+    font-weight: 1000;
     letter-spacing: -0.02em;
-    background: red;
+    background: orange;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -215,6 +223,7 @@ header {
     border: 0;
     color: white;
     font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
     padding: 0.75rem;
     border-radius: var(--radius);
@@ -409,6 +418,11 @@ main {
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(20px);
+}
+
+.tanner {
+    color: orange;
+    cursor: pointer;
 }
 
 .zone-controls button:hover {
@@ -650,18 +664,21 @@ footer {
 <body class="dark-mode">
     <header>
         <div class="header-content">
-            <div class="logo">gn-math</div>
-            <p>modified by Tanner</p>
+        <div class="logo">gn math</div>
+        <div class="modif">
+            <p>Modified by <a href="https://mpp-16723901.codehs.me/" class="tanner">Tanner</a></p>
+        </div>
             <div class="search-container">
-                <input type="text" id="searchBar" placeholder="Search zones..." oninput="filterZones()">
+                <input type="text" id="searchBar" placeholder="Search gn math..." oninput="filterZones()">
                 <select id="sortOptions" onchange="sortZones()">
                     <option value="name">Name</option>
-                    <option value="id">ID (Date)</option>
+                    <option value="id">A number (idk)</option>
                     <option value="popular">Popular</option>
+                    <option>Why are you reading these? Touch grass...</option>
                 </select>
             </div>
             <div class="control-buttons">
-                <button id="settings" style="background-color: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.5rem 1rem; font-size: 16px; cursor: pointer;">Settings</button>
+                <button id="settings" style="background-color: var(--primary-color); color: orange; border: none; border-radius: 4px; padding: 0.5rem 1rem; font-size: 16px; cursor: pointer;">Cool options!</button>
             </div>
         </div>
     </header>
@@ -677,13 +694,13 @@ footer {
 
     <main>
         <details id="featuredZonesWrapper" open>
-            <summary id="allZonesSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">Featured Zones</summary>
+            <summary id="allZonesSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">Featured zones</summary>
             <div id="featuredZones" class="zone-container"></div>
         </details>
         <br><hr><br>
         <details id="allZonesWrapper" open>
-            <summary id="allSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">All Zones</summary>
-            <div id="container">Loading...</div>
+            <summary id="allSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer;">Every other zone</summary>
+            <div id="container">Hold onto your butts...</div>
         </details>
     </main>
 
@@ -729,7 +746,7 @@ footer {
         <div class="footer-links">
             <a href="#" onclick="loadDMCA(); return false;">DMCA</a>
             <a href="#" onclick="showContact(); return false;">Contact</a>
-            <a href="#" onclick="loadPrivacy(); return false;">Copyright Notice</a>
+            <a href="#" onclick="loadPrivacy(); return false;">Copyright licence</a>
             <a href="javascript:saveData()">Export Data</a>
             <a href="#" onclick="document.getElementById('importData').click(); return false;">Import Data</a>
             <input type="file" id="importData" style="display: none;" onchange="loadData(event)">
@@ -1312,7 +1329,7 @@ settings.addEventListener('click', () => {
     popupBody.innerHTML = `
     <button id="settings-button" onclick="darkMode()">Toggle Dark Mode</button>
     <br><br>
-    <button id="settings-button" onclick="tabCloak()">Tab Cloak</button>
+    <button id="settings-button" onclick="tabCloak()">Tab Title</button>
     <br>
     `;
     popupBody.contentEditable = false;
@@ -1323,23 +1340,24 @@ function showContact() {
     document.getElementById('popupTitle').textContent = "Contact";
     const popupBody = document.getElementById('popupBody');
     popupBody.innerHTML = `
-    <p>Discord: https://discord.gg/NAFw4ykZ7n</p>
-    <p>Email: gn.math.business@gmail.com</p>`;
+    <p>Email: dallitan000@alpinesd.org</p>`;
     popupBody.contentEditable = false;
     document.getElementById('popupOverlay').style.display = "flex";
 }
 
 function loadPrivacy() {
-    document.getElementById('popupTitle').textContent = "Privacy Policy";
+    document.getElementById('popupTitle').textContent = "Copyright licence";
     const popupBody = document.getElementById('popupBody');
     popupBody.innerHTML = `
         <div style="max-height: 60vh; overflow-y: auto;">
-            <h2>COPYRIGHT NOTICE</h2>
-            <p>Last updated November 10, 2025</p>
-            <p>Copyright © 2025 Tanner Dallin.
-All rights reserved.
-You may not use, copy, modify, or distribute this software without explicit written permission from the copyright holder.</p>
-            </div>
+            <h2 style="margin-top:0; color:#ff6a00;">Copyright & Legal Notice</h2>
+        <p style="font-size:15px; line-height:1.5;">
+          &copy; <span id="lic-year"></span> GN Math. All rights reserved.<br><br>
+          This project and its contents are protected by copyright laws.<br>
+          <strong>Legal License:</strong> You must contact the owner (<a href="mailto:dallitan000@alpinesd.org" style="color:orange;">dallitan000@alpinesd.org</a>) to obtain a legal copy or for any permitted uses of this project.<br>
+          Unauthorized reproduction, distribution, or use is prohibited by law and may result in punishments such as an approximate fine of $150.00 and/or unknown prison time.
+        </p>
+        </div>
     `;
     popupBody.contentEditable = false;
     document.getElementById('popupOverlay').style.display = "flex";
@@ -1351,21 +1369,7 @@ function loadDMCA() {
     popupBody.innerHTML = `
         <div class="dmca-content">
             <p>
-                If you own or developed a game that is on <strong>gn-math</strong> 
-                and would like it removed, please do one of the following:
-            </p>
-            <ol>
-                <li>
-                    <a href="https://discord.gg/D4c9VFYWyU" target="_blank" rel="noopener noreferrer">
-                        Join the Discord
-                    </a> and DM <strong>breadbb</strong> or ping me in a public channel 
-                    <strong>[INSTANT RESPONSE]</strong>
-                </li>
-                <li>
-                    Email me at 
-                    <a href="mailto:gn.math.business@gmail.com">gn.math.business@gmail.com</a> 
-                    with the subject starting with <code>!DMCA</code>.
-                    <strong>[DELAYED RESPONSE]</strong>
+                If you own or developed a game on gn math, and would like it removed, please contact dallitan000@alpinesd.org <strong>[DELAYED RESPONSE]</strong>
                 </li>
             </ol>
             <p>
