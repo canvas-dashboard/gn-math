@@ -487,8 +487,8 @@ main {
 }
 
 .popup-header {
-    background: var(--gradient-primary);
-    color: white;
+    background: #5A5A5A;
+    color: orange;
     padding: 1.25rem 1.5rem;
     display: flex;
     justify-content: space-between;
@@ -502,9 +502,9 @@ main {
 }
 
 #popupClose {
-    background: rgba(255, 255, 255, 0.1);
+    background: #5A5A5A;
     border: 0;
-    color: white;
+    color: orange;
     font-size: 1.25rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -520,7 +520,7 @@ main {
 }
 
 #popupClose:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: gray;
     transform: scale(1.1);
 }
 
@@ -748,7 +748,7 @@ footer {
     <footer>
         <div class="footer-links">
             <a href="#" onclick="loadDMCA(); return false;">DMCA</a>
-            <a href="#" onclick="showContact(); return false;">Contact</a>
+            <a href="#" onclick="showContact(); return false;">Credits</a>
             <a href="#" onclick="loadPrivacy(); return false;">Copyright licence</a>
             <a href="javascript:saveData()">Export Data</a>
             <a href="#" onclick="document.getElementById('importData').click(); return false;">Import Data</a>
@@ -1340,10 +1340,9 @@ settings.addEventListener('click', () => {
 });
 
 function showContact() {
-    document.getElementById('popupTitle').textContent = "Contact";
+    document.getElementById('popupTitle').textContent = "Credits";
     const popupBody = document.getElementById('popupBody');
-    popupBody.innerHTML = `
-    <p>Sorry, no contact here :( just play some DriveMad or something</p>`;
+    popupBody.innerHTML = `<p><br>Owner: NotTanner<br>Co-owners: Ender, James</p>`;
     popupBody.contentEditable = false;
     document.getElementById('popupOverlay').style.display = "flex";
 }
@@ -1372,7 +1371,7 @@ function loadDMCA() {
     popupBody.innerHTML = `
         <div class="dmca-content">
             <p>
-                If you own or developed a game on gn math, and would like it removed, please contact me via the contact button <strong>[DELAYED RESPONSE]</strong>
+                If you own or developed a game on gn math, and would like it removed, please send me a notice, and I will remove it as soon as possible.</strong>
                 </li>
             </ol>
             <p>
