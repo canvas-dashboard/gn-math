@@ -41,9 +41,9 @@
     <meta name="twitter:description" content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home.">
     <style>
 :root {
-    --primary: #fc2651;
-    --primary-hover: #e91e47;
-    --primary-light: rgba(252, 38, 81, 0.1);
+    --primary: #5A5A5A;
+    --primary-hover: #5A5A5A;
+    --primary-light: #5A5A5A;
     --primary-lighter: rgba(252, 38, 81, 0.05);
     --accent: #8b5cf6;
     --accent-light: rgba(139, 92, 246, 0.1);
@@ -219,7 +219,7 @@ header {
 }
 
 #settings {
-    background: rgba(255, 255, 255, 0.1);
+    background: #5A5A5A;
     border: 0;
     color: white;
     font-size: 1.2rem;
@@ -347,7 +347,7 @@ main {
 #zoneViewer {
     position: fixed;
     inset: 0;
-    background: var(--bg);
+    background: #5A5A5A;
     z-index: 1000;
     display: none;
     flex-direction: column;
@@ -364,8 +364,8 @@ main {
 }
 
 .zone-header {
-    background: var(--gradient-primary);
-    color: white;
+    background: #5A5A5A;
+    color: orange;
     padding: 1rem 1.5rem;
     display: flex;
     align-items: center;
@@ -391,14 +391,14 @@ main {
 
 #zoneAuthor {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: orange;
     text-decoration: none;
     transition: all 0.2s ease;
     font-weight: 500;
 }
 
 #zoneAuthor:hover {
-    color: white;
+    color: orange;
     text-decoration: underline;
 }
 
@@ -410,7 +410,7 @@ main {
 .zone-controls button {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+    color: orange;
     padding: 0.625rem 1rem;
     border-radius: var(--radius);
     cursor: pointer;
@@ -420,8 +420,8 @@ main {
     backdrop-filter: blur(20px);
 }
 
-.tanner {
-    color: orange;
+.upgrd {
+    color: #87CEEB;
     cursor: pointer;
 }
 
@@ -596,7 +596,7 @@ footer {
 }
 
 .footer-links a {
-    color: var(--primary);
+    color: orange;
     text-decoration: none;
     font-weight: 600;
     font-size: 15px;
@@ -662,11 +662,14 @@ footer {
     </style>
 </head>
 <body class="dark-mode">
+  <script>
+      alert("Gn math is an illegal website and must be kept secret from authoritive adults. Click OK to continue.")
+  </script>
     <header>
         <div class="header-content">
         <div class="logo">gn math</div>
         <div class="modif">
-            <p>Modified by <a href="https://mpp-16723901.codehs.me/" class="tanner">Tanner</a></p>
+            <p>Upgrade to <a class="upgrd" onclick="window.open('https://forms.gle/Nz7UoSM1GjkRbXpL9', '_blank')">GN Magic</a></p>
         </div>
             <div class="search-container">
                 <input type="text" id="searchBar" placeholder="Search gn math..." oninput="filterZones()">
@@ -1340,7 +1343,7 @@ function showContact() {
     document.getElementById('popupTitle').textContent = "Contact";
     const popupBody = document.getElementById('popupBody');
     popupBody.innerHTML = `
-    <p>Email: dallitan000@alpinesd.org</p>`;
+    <p>Sorry, no contact here :( just play some DriveMad or something</p>`;
     popupBody.contentEditable = false;
     document.getElementById('popupOverlay').style.display = "flex";
 }
@@ -1354,8 +1357,8 @@ function loadPrivacy() {
         <p style="font-size:15px; line-height:1.5;">
           &copy; <span id="lic-year"></span> GN Math. All rights reserved.<br><br>
           This project and its contents are protected by copyright laws.<br>
-          <strong>Legal License:</strong> You must contact the owner (<a href="mailto:dallitan000@alpinesd.org" style="color:orange;">dallitan000@alpinesd.org</a>) to obtain a legal copy or for any permitted uses of this project.<br>
-          Unauthorized reproduction, distribution, or use is prohibited by law and may result in punishments such as an approximate fine of $150.00 and/or unknown prison time.
+          <strong>Legal License:</strong> You must contact the owner to obtain a legal copy or for any permitted uses of this project.<br>
+          Unauthorized reproduction, distribution, or use is prohibited by law and may result in punishments such as an approximate fine of ~$150.00 and/or un prison time.
         </p>
         </div>
     `;
@@ -1369,7 +1372,7 @@ function loadDMCA() {
     popupBody.innerHTML = `
         <div class="dmca-content">
             <p>
-                If you own or developed a game on gn math, and would like it removed, please contact dallitan000@alpinesd.org <strong>[DELAYED RESPONSE]</strong>
+                If you own or developed a game on gn math, and would like it removed, please contact me via the contact button <strong>[DELAYED RESPONSE]</strong>
                 </li>
             </ol>
             <p>
