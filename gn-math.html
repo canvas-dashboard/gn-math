@@ -69,18 +69,18 @@
     --radius-sm: 8px;
     --radius-lg: 16px;
     --radius-xl: 20px;
-    --gradient-primary: linear-gradient(135deg, #fc2651 0%, #e91e47 100%);
-    --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
-    --gradient-surface: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    --gradient-primary: #5A5A5A;
+    --gradient-accent: #5A5A5A;
+    --gradient-surface: #5A5A5A;
 }
 
 .dark-mode {
-    --primary: #fc2651;
-    --primary-hover: #ff4d75;
-    --primary-light: rgba(252, 38, 81, 0.15);
-    --primary-lighter: rgba(252, 38, 81, 0.08);
+    --primary: orange;
+    --primary-hover: #5A5A5A;
+    --primary-light: #5A5A5A90;
+    --primary-lighter: #5A5A5A90;
     --accent: #a855f7;
-    --accent-light: rgba(168, 85, 247, 0.15);
+    --accent-light: #5A5A5A;
     --success: #34d399;
     --warning: #fbbf24;
     --text: #f1f5f9;
@@ -88,10 +88,10 @@
     --text-light: #64748b;
     --bg: #0f172a;
     --bg-secondary: #1e293b;
-    --surface: #1e293b;
-    --surface-hover: #334155;
-    --border: #334155;
-    --border-light: #475569;
+    --surface: orange;
+    --surface-hover: orange;
+    --border: #5A5A5A;
+    --border-light: #5A5A5A;
     --glass: rgba(30, 41, 59, 0.8);
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.4);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.5);
@@ -99,9 +99,9 @@
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.6);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.7), 0 8px 10px -6px rgb(0 0 0 / 0.7);
     --shadow-glow: 0 0 20px rgba(252, 38, 81, 0.4);
-    --gradient-primary: linear-gradient(135deg, #fc2651 0%, #ff4d75 100%);
-    --gradient-accent: linear-gradient(135deg, #a855f7 0%, #9333ea 100%);
-    --gradient-surface: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    --gradient-primary: #5A5A5A;
+    --gradient-accent: #5A5A5A;
+    --gradient-surface: #5A5A5A;
 }
 
 * {
@@ -555,7 +555,7 @@ main {
     width: 100%;
     padding: 0.875rem 1rem;
     background: var(--gradient-primary);
-    color: white;
+    color: orange;
     border: 0;
     border-radius: var(--radius);
     cursor: pointer;
@@ -681,7 +681,7 @@ footer {
                 </select>
             </div>
             <div class="control-buttons">
-                <button id="settings" style="background-color: var(--primary-color); color: orange; border: none; border-radius: 4px; padding: 0.5rem 1rem; font-size: 16px; cursor: pointer;">Cool options!</button>
+                <button id="settings" style="background-color: var(--primary-color); color: orange; border: none; border-radius: 4px; padding: 0.5rem 1rem; font-size: 40px; cursor: pointer;"> ⚙</button>
             </div>
         </div>
     </header>
