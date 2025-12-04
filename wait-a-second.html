@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wait a second</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    .container {
+      text-align: center;
+      padding: 48px 32px;
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .logo {
+      font-size: 100px;
+      margin-bottom: 32px;
+      cursor: not-allowed;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    h1 {
+      color: #dc2626;
+      margin: 0 0 24px 0;
+      font-weight: 700;
+      line-height: 1.2;
+      animation: fadeIn 1s ease-out 0.2s both;
+      font-size: 70px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 48px;
+      animation: fadeIn 1s ease-out 0.4s both;
+    }
+
+    .button {
+      background: #dc2626;
+      color: #ffffff;
+      border: none;
+      padding: 16px 48px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: fadeIn 1s ease-out 0.6s both;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    }
+
+    .button:hover {
+      background: #b91c1c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dots {
+      display: inline-block;
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% { content: '.'; }
+      40% { content: '..'; }
+      60%, 100% { content: '...'; }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="container">
+   <div class="logo">
+    🛑
+   </div>
+   <h1 id="welcome-text">Wait a second... is this your first time using gn math?</h1>
+   <p class="subtitle">We just need to know you're not a robot</p><button class="button" id="enter-button">No</button>
+   <button class="button" id="no-button" onclick="window.open('https://forms.gle/AuSE8RA8H7YDxNQo6', '_blank')">Yes</button>
+  </div>
+  <script>
+    const TARGET_URL = 'https://gn-math-opener-2-17053489.codehs.me/';
+    const VISITED_KEY = 'gnMathVisited';
+
+    const defaultConfig = {
+      welcome_text: "Wait a second... is this your first time using gn math?",
+      button_text: "I've used it before"
+    };
+
+    let config = { ...defaultConfig };
+
+    async function onConfigChange(newConfig) {
+      config = { ...newConfig };
+      
+      const welcomeElement = document.getElementById('welcome-text');
+      const buttonElement = document.getElementById('enter-button');
+      
+      if (welcomeElement) {
+        welcomeElement.textContent = config.welcome_text || defaultConfig.welcome_text;
+      }
+      
+      if (buttonElement) {
+        buttonElement.textContent = config.button_text || defaultConfig.button_text;
+      }
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['welcome_text', config.welcome_text || defaultConfig.welcome_text],
+        ['button_text', config.button_text || defaultConfig.button_text]
+      ]);
+    }
+
+    // Check if user has visited before
+    function checkFirstVisit() {
+      const hasVisited = localStorage.getItem(VISITED_KEY);
+      
+      if (hasVisited === 'true') {
+        // Returning user - redirect immediately in same tab
+        window.open(TARGET_URL, '_self');
+      }
+    }
+
+    // Mark as visited and redirect
+    function handleEnter() {
+      localStorage.setItem(VISITED_KEY, 'true');
+      window.open(TARGET_URL, '_self');
+    }
+
+    // Initialize
+    async function init() {
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+        
+        config = window.elementSdk.config;
+        await onConfigChange(config);
+      }
+
+      // Check for returning users
+      checkFirstVisit();
+
+      // Setup button click handler
+      const button = document.getElementById('enter-button');
+      if (button) {
+        button.addEventListener('click', handleEnter);
+      }
+    }
+
+    init();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a004ca1f13f530c',t:'MTc2MzM5Mzc0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
